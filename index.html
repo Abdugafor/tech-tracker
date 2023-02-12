@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="tic.png">
+    <title>Tech Tracker</title>
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="heading white">Ваш прогресс</h2>
+      <div class="progress">
+        <div class="progress-bar">
+          <div class="progress-value" id="progress"></div>
+        </div>
+      </div>
+
+      <div class="row" id="content"></div>
+
+      <form class="form" id="form">
+        <h2 class="heading white">Добавить технологию</h2>
+        <div class="form-control">
+          <label for="title" class="white">Название</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            placeholder="Введите название"
+          />
+        </div>
+        <div class="form-control">
+          <label for="description" class="white"> Описание</label>
+          <textarea
+            id="description"
+            name="description"
+            placeholder="Введите описание"
+          ></textarea>
+        </div>
+        <button type="submit" class="btn">Создать</button>
+      </form>
+
+      <div class="themes">
+        <div>
+            <button class="theme-one theme"></button>
+        </div>
+        <div><button class="theme-two theme"></button></div>
+        <div><button class="theme-four theme"></button></div>
+        <div><button class="theme-three theme"></button></div>
+        
+    </div>
+    </div>
+
+    
+
+    <div class="modal" id="modal">
+     
+    </div>
+    <div class="modal-backdrop" id="backdrop"></div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -262,4 +262,9 @@
     box-shadow: 4px 4px 8px rgba(224, 74, 74, 0.779);
   }
 
+  @media (max-width: 700px) {
+    .modal.open {
+      width: 300px;
+    }
+  }
   

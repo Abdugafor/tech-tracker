@@ -68,6 +68,7 @@ function toggleTech(event) {
     const tech = technologies.find(t => t.type === type)
     tech.done = event.target.checked
     getState()
+    saveState()
    init()
 
 }

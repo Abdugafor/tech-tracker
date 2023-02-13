@@ -12,7 +12,8 @@ const modal = document.querySelector('#modal'),
       content = document.querySelector('#content'),
       backdrop = document.querySelector('#backdrop'),
       progress = document.querySelector('#progress'),
-      form = document.querySelector('#form')
+      form = document.querySelector('#form'),
+      globalTrash = document.querySelector('#globalTrash')
 
 
 
@@ -21,11 +22,16 @@ backdrop.addEventListener('click', closeModal)
 modal.addEventListener('change', toggleTech)
 form.addEventListener('submit', createTech)
 
+
 const APP_TITLE = document.title
 const LS_KEY = 'MY_TECHS'
 
-const technologies = getState()  
+let technologies = getState()  
 
+globalTrash.addEventListener('click', () => {
+   technologies = []
+    reRenderCard()
+})
 
 
 function openCard(event) {
@@ -197,18 +203,21 @@ function reRenderCard() {
 const white = document.querySelectorAll('.white')
 
 themeOne.addEventListener('click', () => {
+    p()
     body.style.background = '#406bdf'
     white.forEach(item => item.style.color = 'white')
     
 })
 
 themeTwo.addEventListener('click', () => {
+    p()
     body.style.background = '#df743a'
     white.forEach(item => item.style.color = 'white')
     
 })
 
 themethree.addEventListener('click', () => {
+    p()
     body.style.background = '#fbfbfb'
     white.forEach(item => item.style.color = 'black')
     
@@ -223,4 +232,13 @@ function theme() {
     cards.forEach(item => item.classList.add('hover'))
 }
 
+function p() {
+    if (technologies.length === 0) {
+        const p = document.querySelector('.empty')
+        p.style.color = 'white'
+    }else {
+        return
+    }
+    
+}
 init()

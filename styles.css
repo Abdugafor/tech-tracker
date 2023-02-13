@@ -254,6 +254,16 @@
     cursor: pointer;
   }
 
+  #globalTrash:hover {
+    cursor: pointer;
+  }
+
+  .bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   .hover {
     transition: all 0.3s;
   }

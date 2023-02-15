@@ -1,10 +1,16 @@
 const themeOne = document.querySelector('.theme-one'),
       themeTwo = document.querySelector('.theme-two'),
-      themethree = document.querySelector('.theme-three'),
-      themeFour = document.querySelector('.theme-four'),
+      themeFour = document.querySelector('.theme-three'),
+      themeThree = document.querySelector('.theme-four'),
       body = document.querySelector('body'),
-      card = document.querySelectorAll('.card')
+      card = document.querySelectorAll('.card'),
+      white = document.querySelectorAll('.white')
 
+
+if (localStorage.getItem('bg') != '') {
+    body.style.background = localStorage.getItem('bg')
+    white.forEach(item => item.style.color = localStorage.getItem('color'))   
+}
       
 // Modal
 
@@ -191,6 +197,7 @@ function saveState() {
 function getState() {
     const row = localStorage.getItem(LS_KEY)
     return row ? JSON.parse(row) : []
+   
 }
 
 function reRenderCard() {
@@ -200,42 +207,59 @@ function reRenderCard() {
     saveState()
 }
 
-const white = document.querySelectorAll('.white')
-
 themeOne.addEventListener('click', () => {
-    p()
+    paragraphColor()
     body.style.background = '#406bdf'
     white.forEach(item => item.style.color = 'white')
-    
+    if (localStorage.getItem('bg') != 'rgb(64, 107, 223)') {
+        localStorage.setItem('bg', body.style.background)
+        localStorage.setItem('color', 'white')
+    }
 })
 
 themeTwo.addEventListener('click', () => {
-    p()
+    paragraphColor()
     body.style.background = '#df743a'
     white.forEach(item => item.style.color = 'white')
+    if (localStorage.getItem('bg') != 'rgb(223, 116, 58)') {
+        localStorage.setItem('bg', body.style.background)
+        localStorage.setItem('color', 'white')
+    }
     
 })
 
-themethree.addEventListener('click', () => {
-    p()
-    body.style.background = '#fbfbfb'
-    white.forEach(item => item.style.color = 'black')
-    
-})
 
-themeFour.addEventListener('click', theme)
+
+themeThree.addEventListener('click', theme)
 
 function theme() {
     const cards = document.querySelectorAll('.card')
     body.style.background = '#222'
     white.forEach(item => item.style.color = 'white')
     cards.forEach(item => item.classList.add('hover'))
+    if (localStorage.getItem('bg') != 'rgb(34, 34, 34)') {
+        localStorage.setItem('bg', body.style.background)
+        localStorage.setItem('color', 'white')
+    }
 }
 
-function p() {
+themeFour.addEventListener('click', () => {
+    globalTrash.style.color = 'black'
+    body.style.background = '#fbfbfb'
+    white.forEach(item => item.style.color = 'black')
+    if (localStorage.getItem('bg') != 'rgb(251, 251, 251)') {
+        localStorage.setItem('bg', body.style.background)
+        localStorage.setItem('color', 'black')
+    }
+
+    
+})
+
+function paragraphColor() {
     if (technologies.length === 0) {
         const p = document.querySelector('.empty')
         p.style.color = 'white'
+        globalTrash.style.color = 'white'
     }else {
         return
     }
